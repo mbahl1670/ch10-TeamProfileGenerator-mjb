@@ -1,0 +1,23 @@
+{
+  "name": "ch10-teamprofilegenerator-mjb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbahl1670/ch10-TeamProfileGenerator-mjb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbahl1670/ch10-TeamProfileGenerator-mjb/issues"
+  },
+  "homepage": "https://github.com/mbahl1670/ch10-TeamProfileGenerator-mjb#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "jest": "^27.4.3"
+  }
+}
