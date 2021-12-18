@@ -1,3 +1,8 @@
+const Employee = require("../lib/Employee");
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
+
 const generateManager = managerInfo => {
     const empManager = managerInfo.filter(employee => {
         if (employee.role === "Manager") {
@@ -11,14 +16,14 @@ const generateManager = managerInfo => {
         return `
             <div class="card shadow-lg col-3 bg-light">
                 <div class="card-header text-white bg-primary mt-4">
-                    <h3>${managerInfo.name}</h3>
-                    <h4>${managerInfo.role}</h4>
+                    <h3>${managerInfo.getName()}</h3>
+                    <h4>${managerInfo.getRole()}</h4>
                 </div>
     
                 <ul class="list-group list-group-flush my-4 border">
-                    <li class="list-group-item bg-white">Id:  ${managerInfo.id}</p>
-                    <li class="list-group-item bg-white">Email: <a href="${managerInfo.email}">${managerInfo.email}</a></p>
-                    <li class="list-group-item bg-white">Office number: ${managerInfo.officeNumber}</p>
+                    <li class="list-group-item bg-white">Id:  ${managerInfo.getID()}</p>
+                    <li class="list-group-item bg-white">Email: <a href="mailto:${managerInfo.getEmail()}">${managerInfo.email}</a></p>
+                    <li class="list-group-item bg-white">Office number: ${managerInfo.getOfficeNumber()}</p>
                 </ul>
             </div>
     `;
@@ -28,7 +33,32 @@ const generateManager = managerInfo => {
 };
 
 const generateEngineers = engineerInfo  => {
+    const empEngineers = engineerInfo.filter(employee => {
+        if (employee.role === "Engineer") {
+            return true;
+        } else {
+            return false;
+        }
+    });
 
+    const engineerHTML = empEngineers.map(engineerInfo => {
+        return `
+            <div class="card shadow-lg col-3 bg-light">
+                <div class="card-header text-white bg-primary mt-4">
+                    <h3>${engineerInfo.getName()}</h3>
+                    <h4>${engineerInfo.getRole()}</h4>
+                </div>
+    
+                <ul class="list-group list-group-flush my-4 border">
+                    <li class="list-group-item bg-white">Id:  ${engineerInfo.getID()}</p>
+                    <li class="list-group-item bg-white">Email: <a href="mailto:${engineerInfo.getEmail()}">${engineerInfo.getEmail()}</a></p>
+                    <li class="list-group-item bg-white">GitHub: <a href="https://github.com/${engineerInfo.getGitHub()}">${engineerInfo.getGitHub()}</a></p>
+                </ul>
+            </div>
+    `;
+    });
+
+    return `${engineerHTML.join("")}`;
 };
 
 const generateInterns = internInfo => {
@@ -38,13 +68,7 @@ const generateInterns = internInfo => {
 const generateHTML = teamData => {
     
 
-    const empEngineers = teamData.filter(employee => {
-        if (employee.role === "Engineer") {
-            return true;
-        } else {
-            return false;
-        }
-    });
+    
 
     const empInterns = teamData.filter(employee => {
         if (employee.role === "Intern") {

@@ -124,7 +124,7 @@ const promptEmployees = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Pleaes enter the employee's email!");
+                    console.log("Please enter the employee's email!");
                 }
             }
         },
@@ -167,11 +167,11 @@ const promptEmployees = () => {
 
         // Create an Engineer Object if 
         if (role === "Engineer") {
-            employee = new Engineer(name, id, email, roleQuestion);
+            employee = new Engineer(name, id, email, roleQuestion.gitHub);
         }
 
         if (role === "Intern") {
-            employee = new Intern(name, id, email, roleQuestion);
+            employee = new Intern(name, id, email, roleQuestion.school);
         }
 
         teamInfo.push(employee);
@@ -185,16 +185,18 @@ const promptEmployees = () => {
 };
 
 const printDat = () => {
-    // console.log(teamInfo);
     console.log(teamInfo);
+
 };
 
 promptManager()
     .then(promptEmployees)
+    // .then(printDat)
     .then(empdata => {
         const pageHTML = generateHTML(empdata);
         
         fs.writeFile("./dist/index.html", pageHTML, err => {
+            console.log("checkout the html file");
             if (err) throw new Error(err);
         });
         
