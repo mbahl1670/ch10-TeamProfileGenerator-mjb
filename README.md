@@ -42,4 +42,11 @@ https://github.com/mbahl1670/ch10-teamProfileGenerator-mjb
 
 
 ## How this was accomplished
-* 
+* set up the basic directory structore for the app
+* created tests for creating the Employee class
+* wrote code to pass the Employee class tests
+* wrote tests for extended classes of Manager, Engineer, and Intern
+* Wrote code to pass the tests for each of the classes
+* Set up the index.js to run the app
+* Created a module for creating the html for the page
+* Worked out the html templates for the generateHTML functions
