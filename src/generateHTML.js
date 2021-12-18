@@ -52,7 +52,7 @@ const generateEngineers = engineerInfo  => {
                 <ul class="list-group list-group-flush my-4 border">
                     <li class="list-group-item bg-white">Id:  ${engineerInfo.getID()}</li>
                     <li class="list-group-item bg-white">Email: <a href="mailto:${engineerInfo.getEmail()}">${engineerInfo.getEmail()}</a></li>
-                    <li class="list-group-item bg-white">GitHub: <a href="https://github.com/${engineerInfo.getGitHub()}">${engineerInfo.getGitHub()}</a></li>
+                    <li class="list-group-item bg-white">GitHub: <a href="https://github.com/${engineerInfo.getGitHub()}" target="_blank">${engineerInfo.getGitHub()}</a></li>
                 </ul>
             </div>
     `;
