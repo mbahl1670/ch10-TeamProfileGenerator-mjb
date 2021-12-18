@@ -1,8 +1,10 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 // const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateHTML = require("./src/generateHTML");
 
 // array to hold the team data
 const teamInfo = [];
@@ -184,12 +186,19 @@ const promptEmployees = () => {
 
 const printDat = () => {
     // console.log(teamInfo);
-    console.log(teamInfo[1].getGitHub());
+    console.log(teamInfo);
 };
 
 promptManager()
-    .then (promptEmployees)
-    .then (printDat) // what we are going to do with the data
+    .then(promptEmployees)
+    .then(empdata => {
+        const pageHTML = generateHTML(empdata);
+        
+        fs.writeFile("./dist/index.html", pageHTML, err => {
+            if (err) throw new Error(err);
+        });
+        
+    }) // what we are going to do with the data
     .catch((err => {
         console.log(err);
     }));
