@@ -28,6 +28,7 @@ This is a Node.js application for generating an HTML page dispalying a software 
 
 
 ## Walkthrough Video
+https://watch.screencastify.com/v/KboaoHHcH7zTlumzdirk
 
 
 ## Sample File
